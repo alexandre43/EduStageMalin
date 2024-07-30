@@ -1,51 +1,80 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang='fr'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta
+      name='description'
+      content="Rapport réalisé dans le cadre de mon stage d'observation chez Edumalin."
+    />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  :root {
+    --main-bg: 10, 10, 10;
+    --brand-color-1: #DE2085; 
+    --brand-color-2: #3BB2B2;
+    --brand-color-3: #4A89DB; 
+    --brand-gradient: linear-gradient(
+      90deg,
+      var(--brand-color-1),
+      var(--brand-color-2) 40%,
+      var(--brand-color-3) 80%
+    );
+    --reverse-brand-gradient: linear-gradient(
+      -90deg,
+      var(--brand-color-1),
+      var(--brand-color-2) 40%,
+      var(--brand-color-3) 80%
+    );
+    --font-color: #E8F2FA;
+    --border-size: 1px;
+  }
+
+  html {
+    font-family: Roboto,system-ui, sans-serif;
+    background: rgb(var(--main-bg));
+    color: var(--font-color);
+  }
 </style>
